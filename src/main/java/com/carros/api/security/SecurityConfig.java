@@ -16,7 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Configuration
-@EnableWebSecurity
+@EnableWebSecurity //habilita a segurança
 @EnableGlobalMethodSecurity(securedEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -28,16 +28,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         // Removi segurança para subir o servidor.
-        http
+        /*http
                 .authorizeRequests()
                 .anyRequest().permitAll()
-                .and().csrf().disable();
-
-//        http
-//                .authorizeRequests()
-//                .anyRequest().authenticated()
-//                .and().httpBasic()
-//                .and().csrf().disable();
+                .and().csrf().disable();*/
+        http
+            .authorizeRequests()
+            .anyRequest().authenticated()
+            .and().httpBasic()
+            .and().csrf().disable();
     }
 
     @Override
