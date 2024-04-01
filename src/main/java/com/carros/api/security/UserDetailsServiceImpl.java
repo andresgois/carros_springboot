@@ -23,6 +23,16 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
 
         return user;
+        /*
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+        if(username.equals("user")){
+            return User.withUsername(username).password(encoder.encode("user")).roles("USER").build();
+        } else if(username.equals("admin")){
+            return User.withUsername(username).password(encoder.encode("admin")).roles("USER", "ADMIN");
+        }
+        throw new UsernameNotFoundException("user not found");
+         */
 
     }
 }

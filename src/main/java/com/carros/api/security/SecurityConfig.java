@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 
 @Configuration
 @EnableWebSecurity //habilita a segurança
-@EnableGlobalMethodSecurity(securedEnabled = true)
+@EnableGlobalMethodSecurity(securedEnabled = true)//  habilita a permissão por ROLE
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
